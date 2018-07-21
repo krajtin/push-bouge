@@ -1,0 +1,19 @@
+{
+  "name": "push-bouge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+     "express": "^4.16.1",
+	"body-parser": "^1.15.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "server.js"
+  },
+  "engines": {
+    "node": "6.10.2"
+  },
+  "author": "daniel",
+  "license": "ISC"
+}
