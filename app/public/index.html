@@ -1,13 +1,149 @@
 <!DOCTYPE html>
 <html lang="es" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Push notificaciones</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
 
-  </head>
-  <body>
+<head>
+  <meta charset="utf-8">
+  <title>Push notificaciones</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
 
-  </body>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('.fixed-action-btn');
+      var instances = M.FloatingActionButton.init(elems, 4);
+
+      elems = document.querySelectorAll('select');
+      instances = M.FormSelect.init(elems, 3);
+
+      listener();
+    });
+
+    function listener() {
+
+      document.getElementById("add").addEventListener("click", function() {
+        document.getElementById("formulario").style.display = "block";
+      });
+
+      document.getElementById("send").addEventListener("click", function() {
+        document.getElementById("formulario-datos").style.display = "block";
+      });
+      document.getElementById("close-send").addEventListener("click", function() {
+        document.getElementById("formulario-datos").style.display = "none";
+      });
+      document.getElementById("close").addEventListener("click", function() {
+        document.getElementById("formulario").style.display = "none";
+      });
+
+      document.getElementById("enviar").addEventListener("click", function() {
+        //document.getElementById("formulario").style.display = "none";
+      });
+
+
+    }
+  </script>
+</head>
+
+<body>
+  <!-- formulario registro -->
+  <div class="row">
+    <div class="col s3"></div>
+    <div class="col s6">
+
+      <div id="formulario" class="row" style="display:none;padding-top:20px;padding-bottom: 20px;background-color:#f9f2f2;margin-top:20px;">
+        <div class="col s12" style="text-align:right;">
+          <a id="close" class="btn-floating red darken-1">
+            <i class="material-icons">close</i>
+          </a>
+        </div>
+        <div class="input-field col s6">
+          <input id="nombre" type="text" class="validate">
+          <label for="nombre">Nombre</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="correo" type="email" class="validate">
+          <label for="correo">Email</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="telefono" type="tel" class="validate">
+          <label for="telefono">Teléfono</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="sender-id" type="text" class="validate">
+          <label for="sender-id">Sender ID</label>
+        </div>
+        <div class="col s6">
+          <button id="enviar" class="btn waves-effect waves-light red lighten-2">Enviar</button>
+        </div>
+
+      </div>
+    </div>
+    <div class="col s3"></div>
+  </div>
+  <!-- formulario datos enviar -->
+  <div class="row">
+    <div class="col s3"></div>
+    <div class="col s6">
+
+      <div id="formulario-datos" class="row" style="display:none;padding-top:20px;padding-bottom: 20px;background-color:#ccc;margin-top:20px;">
+        <div class="col s12" style="text-align:right;">
+          <a id="close-send" class="btn-floating red darken-1">
+            <i class="material-icons">close</i>
+          </a>
+        </div>
+        <div class="input-field col s6">
+          <select>
+             <option value="" disabled selected>Nombre</option>
+             <option value="1">Option 1</option>
+             <option value="2">Option 2</option>
+             <option value="3">Option 3</option>
+           </select>
+          <label>Nombre</label>
+        </div>
+        <div class="input-field col s6">
+          <label>Mensaje</label>
+          <textarea id="mensaje">
+
+          </textarea>
+        </div>
+
+        <div class="col s6">
+          <button id="enviar" class="btn waves-effect waves-light red lighten-2">Enviar</button>
+        </div>
+
+      </div>
+    </div>
+    <div class="col s3"></div>
+  </div>
+  <div class="fixed-action-btn">
+    <a class="btn-floating btn-large red">
+      <i class="large material-icons">mode_edit</i>
+    </a>
+    <ul>
+      <li>
+        <a id="send" class="btn-floating red">
+        <i class="material-icons">send</i>
+      </a>
+      </li>
+      <li>
+        <a id="add" class="btn-floating yellow darken-1">
+          <i class="material-icons">add_circle</i>
+        </a>
+      </li>
+      <li>
+        <a class="btn-floating green">
+          <i class="material-icons">publish</i>
+        </a>
+      </li>
+      <li>
+        <a class="btn-floating blue">
+          <i class="material-icons">attach_file</i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</body>
+
 </html>
